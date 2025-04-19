@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meditrust</title>
+  <link rel="stylesheet" href="login/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-box" id="formBox">
+      <!-- Login Form -->
+      <form id="loginForm" class="form active">
+        <h2>LOGIN</h2>
+        <input type="text" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <small id="loginError" class="error-text"></small>
+        <button type="submit" class="btn">Login</button>
+        <p>New here? <span class="switch-form" onclick="showSignup()">Signup now</span></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="form">
+        <h2>SIGN UP</h2>
+        <input type="text" id="signupName" placeholder="Name" required />
+        <input type="text" id="signupPhone" placeholder="Phone Number" required />
+        <input type="email" id="signupEmail" placeholder="Email" required />
+        <input type="password" id="signupPassword" placeholder="Password" required />
+        <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required />
+        <button type="submit" class="btn">Sign Up</button>
+        <p>Already a member? <span class="switch-form" onclick="showLogin()">Login here</span></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <p id="popupMessage">Success!</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script type="module" src="login/jss/script.js"></script>
+  <script src="login/jss/script.js"></script>
+  
+
+</body>
+</html>

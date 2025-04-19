@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specialist Doctors</title>
+  <link rel="stylesheet" href="specialist.css" />
+</head>
+<body>
+  <div class="top-section">
+    <div class="breadcrumb">🏠 > MediTrust</div>
+    <h1>Find A Specialist</h1>
+    <p>Connect with Trusted Healthcare Experts for Personalized Care</p>
+    <div class="search-sort-container">
+      <input type="text" placeholder="Search for Doctors & Specialities..." id="searchInput" />
+      <button class="search-btn">🔍</button>
+      <select id="sortSelect">
+        <option value="">SORT BY</option>
+        <option value="high">Experience: High to Low</option>
+        <option value="low">Experience: Low to High</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <label><input type="radio" name="department" value="All" checked /> All</label>
+    <label><input type="radio" name="department" value="Orthopaedic" /> Orthopaedic</label>
+    <label><input type="radio" name="department" value="Dental" /> Dental</label>
+    <label><input type="radio" name="department" value="Urology" /> Urology</label>
+    <label><input type="radio" name="department" value="Cardiology" /> Cardiology</label>
+    <label><input type="radio" name="department" value="Neurology" /> Neurology</label>
+  </div>
+
+  <div id="doctorsList" class="doctors-list">
+    <!-- Doctor cards will be injected here -->
+  </div>
+
+  <div id="pagination" class="pagination"></div>
+
+  <div id="appointmentModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="Doctor" />
+      <h2 id="modalName">Dr. Name</h2>
+      <p id="modalDept">Specialty</p>
+      <p id="modalExp">Experience</p>
+      <label>Date: <input type="date" id="appointmentDate" /></label>
+      <label>Time:
+        <select id="appointmentTime">
+          <option value="10:00">10:00</option>
+          <option value="11:00">11:00</option>
+          <option value="12:00">12:00</option>
+        </select>
+      </label>
+      <label>Phone Number: <input type="text" id="phoneNumber" /></label>
+      <div class="modal-actions">
+        <button onclick="closeModal()">Cancel</button>
+        <button onclick="confirmAppointment()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="specialist.js"></script>
+</body>
+</html>
+
+  

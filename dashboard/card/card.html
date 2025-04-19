@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insurance Form</title>
+  <link rel="stylesheet" href="card.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div id="loader" class="loader-container">
+    <div class="loader-bar"></div>
+  </div>
+
+  <div id="termsPopup" class="popup-overlay" style="display: none;">
+    <div class="popup-box">
+      <h2>Terms & Conditions</h2>
+      <p>Please accept the terms and conditions to proceed.</p>
+      <label>
+        <input type="checkbox" id="termsCheckbox" />
+        <a href="terms.html" target="_blank">Terms and Conditions</a>.
+      </label>
+      <div class="popup-actions">
+        <button class="primary-btn" id="acceptTermsBtn">Continue</button>
+        <button class="secondary-btn" id="cancelTermsBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="formSection" class="form-container" style="display: none;">
+    <h2>Insurance Application Form</h2>
+    <form id="insuranceForm">
+      <h3>1. Personal Details</h3>
+      <div class="form-group">
+        <input name="fullName" placeholder="Full Name (as per Aadhaar)" required />
+        <select name="gender" required>
+          <option value="">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="date" name="dob" required />
+        <input name="mobileNumber" placeholder="Mobile Number (linked with PAN)" required />
+        <input name="panCardNumber" placeholder="PAN Card Number" required style="text-transform: uppercase;" maxlength="10" />
+      </div>
+
+      <h3>2. Address Details</h3>
+      <div class="form-group">
+        <input name="address" placeholder="Complete Residential Address" required />
+        <input name="state" placeholder="State" required />
+        <input name="district" placeholder="District" required />
+        <input name="village" placeholder="Village / Town" required />
+        <input name="pincode" placeholder="Pincode" required />
+      </div>
+
+      <h3>3. Family Details</h3>
+      <div class="form-group">
+      <input id="familyName" placeholder="Full Name" />
+      <input id="familyAadhaar" placeholder="Aadhaar Card Number" />
+      <input id="familyRelation" placeholder="Relation" />
+      <button type="button" id="addMemberBtn" class="primary-btn">+ Add Family Member</button>
+      </div>
+      <ul id="familyMembers"></ul>
+
+      <button class="primary-btn" type="submit">Submit Application</button>
+    </form>
+  </section>
+  <!-- Submission Popup -->
+<div id="submissionPopup" class="popup-overlay" style="display: none;">
+  <div class="popup-box">
+    <h2>Form Submitted</h2>
+    <p>Your form has been successfully submitted!</p>
+    <div class="popup-actions">
+      <button class="primary-btn" id="okSubmissionBtn">OK</button>
+    </div>
+  </div>
+</div>
+<!-- Application Status Canvas (hidden initially) -->
+<canvas id="statusCanvas" style="display: none;"></canvas>
+
+
+  <canvas id="statusCanvas" style="display:none;"></canvas>
+  <div id="cardContainer" style="display:none;"></div>
+
+  <script src="card.js"></script>
+  
+</html>

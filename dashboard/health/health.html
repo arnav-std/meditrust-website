@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Tracker</title>
+  <link rel="stylesheet" href="health.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="container" id="healthReport">
+    <h2>🩺 Health Tracker</h2>
+
+    <!-- Vitals Form -->
+    <form id="vitalsForm">
+      <div class="form-group">
+        <input type="number" id="systolic" placeholder="Systolic (mmHg)" required />
+        <input type="number" id="diastolic" placeholder="Diastolic (mmHg)" required />
+        <input type="number" id="heartRate" placeholder="Heart Rate (bpm)" required />
+        <input type="number" id="sugarLevel" placeholder="Sugar Level (mg/dL)" required />
+        <input type="number" id="sleepHours" placeholder="Sleep Hours" required />
+        <input type="date" id="vitalDate" required />
+        <button type="submit">Save Vitals</button>
+      </div>
+    </form>
+
+    <!-- Chart Control -->
+    <div class="chart-control">
+      <label for="vitalSelect">Show:</label>
+      <select id="vitalSelect">
+        <option value="sugarLevel">Sugar Level</option>
+        <option value="heartRate">Heart Rate</option>
+        <option value="bloodPressure">Blood Pressure</option>
+        <option value="sleepHours">Sleep Hours</option>
+      </select>
+    </div>
+
+    <!-- Health Chart -->
+    <canvas id="healthChart" width="400" height="200"></canvas>
+  </div>
+
+  <!-- PDF Download Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="downloadPdfBtn">Download Health Record</button>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote-section">
+    Committed to Your Well-being — <span style="font-style: italic; color: #e0f7ff;">MediTrust</span>
+  </div>
+
+  <script type="module" src="health.js"></script>
+</body>
+</html>

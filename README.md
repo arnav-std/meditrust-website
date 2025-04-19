@@ -1,1 +1,2 @@
-# meditrust-website
+# MediTrust - Your Health Companion
+Welcome to MediTrust
